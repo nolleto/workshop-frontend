@@ -1,5 +1,7 @@
 import AsyncComponent from './components/AsyncComponent'
 import AsyncHookedComponent from './components/AsyncHookedComponent'
+import CounterComponent from './components/CounterComponent'
+import CounterHookedComponent from './components/CounterHookedComponent'
 import FormComponent from './components/FormComponent'
 import PrintUserComponent from './components/PrintUserComponent'
 import ShowComponent from './components/ShowComponent'
@@ -40,6 +42,14 @@ function App() {
 
       <ShowComponent title='FormComponent'>
         <FormComponent />
+      </ShowComponent>
+
+      <ShowComponent title='CounterComponent'>
+        <CounterComponent />
+      </ShowComponent>
+
+      <ShowComponent title='CounterHookedComponent'>
+        <CounterHookedComponent />
       </ShowComponent>
     </div>
   );
