@@ -1,24 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AsyncComponent from './components/AsyncComponent'
+import AsyncHookedComponent from './components/AsyncHookedComponent'
+import FormComponent from './components/FormComponent'
+import PrintUserComponent from './components/PrintUserComponent'
+import ShowComponent from './components/ShowComponent'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ShowComponent title='PrintUserComponent - Felipe'>
+        <PrintUserComponent user={{
+          name: 'Felipe',
+          skills: [
+            {
+              experienceYears: 8,
+              language: "JavaScript"
+            },
+            {
+              experienceYears: 4,
+              language: "Ruby"
+            }
+          ]
+        }} />
+      </ShowComponent>
+
+      <ShowComponent title='PrintUserComponent - Josep'>
+        <PrintUserComponent user={{
+          name: 'Josep',
+          skills: []
+        }} />
+      </ShowComponent>
+
+      <ShowComponent title='AsyncComponent'>
+        <AsyncComponent />
+      </ShowComponent>
+
+      <ShowComponent title='AsyncHookedComponent'>
+        <AsyncHookedComponent />
+      </ShowComponent>
+
+      <ShowComponent title='FormComponent'>
+        <FormComponent />
+      </ShowComponent>
     </div>
   );
 }

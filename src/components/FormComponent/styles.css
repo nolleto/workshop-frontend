@@ -1,0 +1,16 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 12px 0;
+}
+
+.form-group input {
+  height: 18px;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.form-group .error {
+  color: red;
+}
