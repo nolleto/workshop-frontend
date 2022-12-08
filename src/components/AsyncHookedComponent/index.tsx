@@ -1,15 +1,9 @@
 import { useFetchTodo } from '../../hooks/useFetchTodo'
 
-type AsyncHookedComponentProps = {
-}
+type AsyncHookedComponentProps = {}
 
-const AsyncHookedComponent = (props: AsyncHookedComponentProps) => {
-  const {
-    hasError,
-    isFetching,
-    refetch,
-    todo
-  } = useFetchTodo()
+const AsyncHookedComponent = (_props: AsyncHookedComponentProps) => {
+  const { hasError, isFetching, refetch, todo } = useFetchTodo()
 
   if (isFetching) {
     return <div>Loading...</div>
