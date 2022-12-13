@@ -1,8 +1,8 @@
-import type { User } from '../../types';
-import UserSkillsComponent from '../UserSkillsComponent';
+import type { User } from '../../types'
+import UserSkillsComponent from '../UserSkillsComponent'
 
 type PrintUserComponentProps = {
-  user: User;
+  user: User
 }
 
 const PrintUserComponent = ({ user }: PrintUserComponentProps) => {

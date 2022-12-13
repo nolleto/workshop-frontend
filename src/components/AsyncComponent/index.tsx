@@ -1,29 +1,31 @@
 import { useEffect, useState } from 'react'
 
 type Todo = {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
+  userId: number
+  id: number
+  title: string
+  completed: boolean
 }
 
-type AsyncComponentProps = {
-}
+type AsyncComponentProps = {}
 
 const fetchTodo = (): Promise<Todo> => {
-  return fetch('https://jsonplaceholder.typicode.com/todos/1')
-    .then(response => response.json())
+  return fetch('https://jsonplaceholder.typicode.com/todos/1').then(
+    (response) => response.json()
+  )
 }
 
-const AsyncComponent = (props: AsyncComponentProps) => {
-  const [status, setStatus] = useState<'idle' | 'fetching' | 'loaded' | 'error'>('idle')
+const AsyncComponent = (_props: AsyncComponentProps) => {
+  const [status, setStatus] = useState<
+    'idle' | 'fetching' | 'loaded' | 'error'
+  >('idle')
   const [todo, setTodo] = useState<Todo>()
 
   const refetch = () => {
     setStatus('fetching')
 
     fetchTodo()
-      .then(fetchedTodo => {
+      .then((fetchedTodo) => {
         setTodo(fetchedTodo)
         setStatus('loaded')
       })
