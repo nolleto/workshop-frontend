@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
-import UserSkillsComponent from '../UserSkillsComponent'
+
 import PrintUserComponent from './index'
 
 jest.mock('../UserSkillsComponent', () => {
   const MockedComponent = () => <div>UserSkillsComponent</div>
 
-  return jest.fn(MockedComponent)
+  return MockedComponent
 })
 
 describe('PrintUserComponent', () => {
@@ -27,9 +27,6 @@ describe('PrintUserComponent', () => {
       />
     )
 
-    expect(UserSkillsComponent).toBeCalledWith(
-      { skills },
-      expect.any(Object)
-    )
+    expect(screen.getByText(/userskillscomponent/i)).toBeInTheDocument()
   })
 })
