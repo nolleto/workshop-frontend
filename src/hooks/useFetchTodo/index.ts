@@ -1,22 +1,13 @@
 import { useEffect, useState } from 'react'
 
-type Todo = {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-}
+import type { Todo } from '../../service/todo'
+import { todoService } from '../../service/todo'
 
 type useFetchTodoResult = {
   isFetching: boolean;
   hasError: boolean;
   todo?: Todo;
   refetch: () => void;
-}
-
-const fetchTodo = (): Promise<Todo> => {
-  return fetch('https://jsonplaceholder.typicode.com/todos/1')
-    .then(response => response.json())
 }
 
 export const useFetchTodo = (): useFetchTodoResult => {
@@ -26,7 +17,7 @@ export const useFetchTodo = (): useFetchTodoResult => {
   const refetch = () => {
     setStatus('fetching')
 
-    fetchTodo()
+    todoService.getFirst()
       .then(fetchedTodo => {
         setTodo(fetchedTodo)
         setStatus('loaded')
